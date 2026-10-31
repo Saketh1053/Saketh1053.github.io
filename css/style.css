@@ -269,11 +269,9 @@ button:focus-visible,
 /* ABOUT */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
-  align-items: start;
+  grid-template-columns: 1fr;
 }
-.about-grid h2 { font-size: 1.6rem; }
+.about-text { max-width: 720px; }
 .about-text p { color: var(--text-dim); margin-bottom: 1.1rem; }
 
 /* SKILLS */

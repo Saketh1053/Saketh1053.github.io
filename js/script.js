@@ -36,16 +36,26 @@ if (sections.length && navAnchors.length) {
   });
 }
 
-// Evidence screenshots: show real image on load, keep placeholder on error
+// Evidence screenshots: show real image on load, keep placeholder on error.
+// Images can finish loading (from cache or a fast connection) before this
+// script runs and attaches its listeners, so check img.complete first
+// instead of relying solely on the 'load' event firing afterward.
 document.querySelectorAll('.evidence-img').forEach(img => {
-  img.addEventListener('load', () => {
+  const showLoaded = () => {
     img.classList.add('loaded');
     const placeholder = img.parentElement.querySelector('.evidence-placeholder');
     if (placeholder) placeholder.style.display = 'none';
-  });
-  img.addEventListener('error', () => {
+  };
+  const showError = () => {
     img.style.display = 'none';
-  });
+  };
+
+  if (img.complete) {
+    if (img.naturalWidth > 0) showLoaded(); else showError();
+  } else {
+    img.addEventListener('load', showLoaded);
+    img.addEventListener('error', showError);
+  }
 });
 
 // Lightbox for evidence screenshots
