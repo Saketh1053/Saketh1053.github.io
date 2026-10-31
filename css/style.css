@@ -489,7 +489,7 @@ footer .footer-tagline { font-size: 0.8rem; margin-top: 0.3rem; }
   gap: 1.25rem;
   margin: 1.5rem 0;
 }
-.detail-subsections .sub-card h4 {
+.detail-subsections .sub-card h3 {
   color: var(--accent);
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
@@ -549,7 +549,7 @@ footer .footer-tagline { font-size: 0.8rem; margin-top: 0.3rem; }
   border-radius: 10px;
   padding: 1.1rem;
 }
-.test-card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.test-card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
 .test-card .test-status {
   font-family: var(--font-mono);
   font-size: 0.78rem;
