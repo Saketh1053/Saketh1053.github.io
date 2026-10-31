@@ -1,2 +1,9 @@
 .vscode/
 .DS_Store
+
+# AI coding assistant tooling (skills, agents, hooks) - not part of the site
+.claude/
+.agents/
+.codex/
+skills-lock.json
+node_modules/
