@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthGuide AI | Saketh Reddy Maddula</title>
+<meta name="description" content="AIML-500 Workshop 1 Artifact 1: HealthGuide AI, a healthcare education assistant prototype with documented safety testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#home" class="logo">SRM<span>.</span></a>
+    <button id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="index.html#education">Education</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="tag-row">
+    <span>AIML-500</span><span>Workshop 1</span><span>Artifact 1</span>
+  </div>
+  <h1>HealthGuide AI</h1>
+  <p class="page-intro" style="color: var(--text); font-weight: 600; margin-top: 0.5rem;">Healthcare Education Assistant</p>
+  <p class="page-intro">
+    A generative AI prototype designed to explain healthcare information in simple language,
+    with restrictions on diagnoses, prescriptions, sensitive information, and emergency handling.
+  </p>
+  <ul class="tag-list" style="margin-top: 1rem;">
+    <li>Generative AI</li><li>Prompt Engineering</li><li>AI Safety Testing</li>
+  </ul>
+</header>
+
+<main class="artifact-body">
+
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      HealthGuide AI is a healthcare education chatbot I developed during my AI Lab. I chose this
+      project because of my experience with EHR applications and my interest in applying AI to
+      healthcare-related problems.
+    </p>
+  </section>
+
+  <section>
+    <h2>Description</h2>
+    <p>
+      The assistant explains general medical terminology, health conditions, and preventive
+      healthcare information in simple language. It can also help users prepare questions for
+      healthcare professionals.
+    </p>
+    <p>
+      HealthGuide AI is an educational prototype. It does not diagnose medical conditions,
+      prescribe medication, or make treatment decisions.
+    </p>
+  </section>
+
+  <section>
+    <h2>Objective</h2>
+    <p>
+      My objective was to create a chatbot that provides understandable healthcare information
+      while following specific safety and privacy restrictions.
+    </p>
+    <p>
+      I also wanted to evaluate how the assistant responded to different user requests and whether
+      changes to its instructions improved its behavior.
+    </p>
+  </section>
+
+  <section>
+    <h2>Process</h2>
+    <p>
+      I began by identifying the intended users, educational goals, and restrictions. I then
+      configured the first version of HealthGuide AI using ChatGPT Plugin Creator.
+    </p>
+    <p>
+      Version 0.1.0 was tested with questions about general healthcare education, medication
+      safety, and role-based access control.
+    </p>
+    <p>
+      After reviewing the prototype, I added specific instructions for medical emergencies and
+      mental health crises. The revised version was saved as Version 0.1.1.
+    </p>
+    <p>
+      I then tested additional scenarios involving diagnosis requests, sensitive patient
+      information, uncertainty, emergencies, and mental health crisis support.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tools and Technologies Used</h2>
+    <p>
+      ChatGPT, ChatGPT Plugin Creator, generative AI, prompt engineering, scenario-based testing,
+      and AI response evaluation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Testing and Results</h2>
+    <p>I conducted nine tests covering the assistant's educational purpose and safety restrictions.</p>
+    <p>All nine tests met the expected behavior for the fictional scenarios used.</p>
+    <p>
+      The tests showed that the assistant followed its main instructions during these
+      interactions. However, the results do not establish that the prototype is suitable for real
+      clinical use.
+    </p>
+
+    <div class="test-grid">
+      <div class="test-card"><h4>Introduction</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Diabetes Education</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Medication Safety</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>RBAC and Privacy</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Emergency Response</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Diagnosis Handling</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Sensitive Information</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Accuracy and Uncertainty</h4><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h4>Mental Health Crisis</h4><span class="test-status">Passed in scenario testing</span></div>
+    </div>
+    <p class="caveat" style="margin-top: 1.25rem;">
+      These are limited demonstration tests using fictional scenarios, not clinical validation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Prototype and Testing Evidence</h2>
+    <div class="evidence-gallery">
+      <figure class="evidence-item">
+        <div class="evidence-shot">
+          <img class="evidence-img" src="assets/images/healthguide-diabetes.png" alt="HealthGuide AI explaining Type 1 and Type 2 diabetes in simple language">
+          <div class="evidence-placeholder">Screenshot pending: Diabetes Education response</div>
+        </div>
+        <figcaption>HealthGuide AI explaining Type 1 and Type 2 diabetes.</figcaption>
+      </figure>
+      <figure class="evidence-item">
+        <div class="evidence-shot">
+          <img class="evidence-img" src="assets/images/healthguide-medication-safety.png" alt="HealthGuide AI declining to prescribe an antibiotic or provide an exact dose">
+          <div class="evidence-placeholder">Screenshot pending: Medication Safety response</div>
+        </div>
+        <figcaption>Medication safety test using a fictional patient.</figcaption>
+      </figure>
+      <figure class="evidence-item">
+        <div class="evidence-shot">
+          <img class="evidence-img" src="assets/images/healthguide-version-update.png" alt="ChatGPT Plugin Creator confirming the Version 0.1.1 update with revised emergency and crisis instructions">
+          <div class="evidence-placeholder">Screenshot pending: Version 0.1.1 update confirmation</div>
+        </div>
+        <figcaption>Safety instructions updated and subsequently tested.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Value Proposition</h2>
+    <p>
+      HealthGuide AI demonstrates my ability to design an AI assistant around a defined user need,
+      configure its behavior, evaluate its responses, and improve it through testing.
+    </p>
+  </section>
+
+  <section>
+    <h2>Unique Value</h2>
+    <p>
+      The project combines general healthcare education with explicit restrictions on medical
+      decisions, personal information, uncertainty, and emergency handling.
+    </p>
+    <p>It also includes a documented development improvement from Version 0.1.0 to Version 0.1.1.</p>
+  </section>
+
+  <section>
+    <h2>Professional Relevance</h2>
+    <p>
+      My work on EHR applications involves testing, access control, data integrity, and reliable
+      healthcare workflows.
+    </p>
+    <p>
+      HealthGuide AI allowed me to apply the same attention to requirements and safety in a
+      generative AI prototype.
+    </p>
+  </section>
+
+  <section>
+    <h2>References</h2>
+    <ul class="plain-list">
+      <li>OpenAI. ChatGPT. <a class="inline-link" href="https://chatgpt.com/" target="_blank" rel="noopener">https://chatgpt.com/</a></li>
+      <li>OpenAI. Privacy Policy. <a class="inline-link" href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">https://openai.com/policies/privacy-policy/</a></li>
+      <li>OpenAI. Terms of Use. <a class="inline-link" href="https://openai.com/policies/terms-of-use/" target="_blank" rel="noopener">https://openai.com/policies/terms-of-use/</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Project Access</h2>
+    <p>HealthGuide AI was created as a private prototype.</p>
+    <p>
+      Project link:
+      <a class="inline-link" href="https://chatgpt.com/plugins/plugins_6ae3e70805b881919d6ee0c6aef2d939" target="_blank" rel="noopener">https://chatgpt.com/plugins/plugins_6ae3e70805b881919d6ee0c6aef2d939</a>
+    </p>
+    <p class="caveat">The link may be inaccessible to visitors. The screenshots above demonstrate the actual prototype and testing process.</p>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close image">&times;</button>
+  <img src="" alt="">
+</div>
+
+<footer>
+  <p>Saketh Reddy Maddula &middot; <span id="year"></span></p>
+  <p class="footer-tagline">Software Engineer | AI/ML | Healthcare Technology</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
