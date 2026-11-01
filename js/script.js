@@ -7,15 +7,15 @@ if (movingBgEls.length) {
   });
 }
 
-// Hero spotlight follows the cursor
-const heroEl = document.querySelector('.hero');
-if (heroEl && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  heroEl.addEventListener('mousemove', (e) => {
-    const rect = heroEl.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    heroEl.style.setProperty('--mx', `${x}%`);
-    heroEl.style.setProperty('--my', `${y}%`);
+// Cursor-following glow, tracked across the entire page (viewport-relative,
+// not scoped to any one element), so it responds no matter where the
+// visitor hovers. Activates on first movement and stays on.
+if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const root = document.documentElement;
+  window.addEventListener('mousemove', (e) => {
+    root.classList.add('mouse-active');
+    root.style.setProperty('--mx', `${(e.clientX / window.innerWidth) * 100}%`);
+    root.style.setProperty('--my', `${(e.clientY / window.innerHeight) * 100}%`);
   });
 }
 
@@ -122,7 +122,10 @@ if (lightbox) {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightbox.classList.add('open');
-      lightboxClose.focus();
+      // Deferred: the element is still mid-transition (visibility/opacity)
+      // at the instant the class is added, and some browsers won't move
+      // focus onto an element until a frame has actually painted it.
+      requestAnimationFrame(() => { requestAnimationFrame(() => lightboxClose.focus()); });
     });
   });
 

@@ -56,6 +56,20 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+/* Cursor-following glow, tracked across the whole page (not scoped to one
+   section), so it responds anywhere the visitor hovers, not just inside a
+   single element's box. --mx/--my are set on :root by a document-wide
+   mousemove listener. */
+.cursor-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(450px circle at var(--mx, 50%) var(--my, 40%), var(--accent-dim), transparent 70%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  :root.mouse-active .cursor-glow { opacity: 1; }
+}
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -230,21 +244,6 @@ button:focus-visible,
   padding: 8rem 1.5rem 6rem;
   position: relative;
   z-index: 1;
-  --mx: 50%;
-  --my: 40%;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(450px circle at var(--mx) var(--my), var(--accent-dim), transparent 70%);
-  opacity: 0;
-  transition: opacity 400ms ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .hero:hover::before { opacity: 1; }
 }
 
 .hero-inner { max-width: var(--max-width); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
@@ -627,7 +626,11 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
   padding: 2.25rem;
   margin-bottom: 2rem;
   scroll-margin-top: 96px;
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
 }
+.detail-main { flex: 1 1 auto; min-width: 0; }
 .project-detail .detail-eyebrow {
   font-size: var(--text-label);
   color: var(--text-dim);
@@ -647,13 +650,25 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
 }
 .detail-subsections .sub-card p { color: var(--text); font-size: var(--text-base); }
 .project-detail p { color: var(--text); margin-bottom: 1rem; max-width: 62ch; }
-.skills-demonstrated {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  font-size: var(--text-base);
-  color: var(--text-dim);
+.detail-skills {
+  flex: 0 0 200px;
+  padding-left: 2.5rem;
+  border-left: 1px solid var(--border);
 }
-.skills-demonstrated strong { color: var(--text); }
+.detail-skills-label {
+  display: block;
+  font-size: var(--text-label);
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.detail-skills .tag-list {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0;
+}
+.detail-skills .tag-list li::after { content: none; }
 .detail-cta {
   margin-top: 1.5rem;
   display: inline-block;
@@ -799,6 +814,17 @@ figcaption {
   .featured-side { align-items: flex-start; }
   .featured-side .tag-list { justify-content: flex-start; }
   .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .project-detail { flex-direction: column; }
+  .detail-skills {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 1.5rem;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .detail-skills .tag-list { flex-direction: row; flex-wrap: wrap; }
+  .detail-skills .tag-list li:not(:last-child)::after { content: " \00b7 "; color: var(--border); }
 }
 
 @media (max-width: 768px) {
