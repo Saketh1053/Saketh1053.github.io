@@ -5,11 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HealthGuide AI | Saketh Reddy Maddula</title>
 <meta name="description" content="AIML-500 Workshop 1 Artifact 1: HealthGuide AI, a healthcare education assistant prototype with documented safety testing.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saketh Reddy Maddula">
+<meta property="og:title" content="HealthGuide AI | Saketh Reddy Maddula">
+<meta property="og:description" content="AIML-500 Workshop 1 Artifact 1: HealthGuide AI, a healthcare education assistant prototype with documented safety testing.">
+<meta property="og:url" content="https://saketh1053.github.io/healthguide-ai.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23a08672'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <div class="noise"><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span><span class="particle" style="--x:4%; --dur:13s; --delay:0s;"></span><span class="particle" style="--x:12%; --dur:17s; --delay:3s;"></span><span class="particle" style="--x:20%; --dur:11s; --delay:1s;"></span><span class="particle" style="--x:29%; --dur:19s; --delay:5s;"></span><span class="particle" style="--x:37%; --dur:15s; --delay:2s;"></span><span class="particle" style="--x:45%; --dur:21s; --delay:7s;"></span><span class="particle" style="--x:53%; --dur:12s; --delay:4s;"></span><span class="particle" style="--x:61%; --dur:18s; --delay:0.5s;"></span><span class="particle" style="--x:69%; --dur:14s; --delay:6s;"></span><span class="particle" style="--x:77%; --dur:20s; --delay:2.5s;"></span><span class="particle" style="--x:85%; --dur:16s; --delay:8s;"></span><span class="particle" style="--x:93%; --dur:13s; --delay:1.5s;"></span></div>
 
@@ -22,6 +30,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#home">Home</a></li>
       <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
       <li><a href="index.html#experience">Experience</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
       <li><a href="index.html#education">Education</a></li>
@@ -45,13 +54,13 @@
   </ul>
 </header>
 
-<main class="artifact-body">
+<main id="main" class="artifact-body">
 
   <section>
     <h2>Introduction</h2>
     <p>
-      HealthGuide AI is a healthcare education chatbot I developed during my AI Lab. I chose this
-      project because of my experience with EHR applications and my interest in applying AI to
+      HealthGuide AI is a healthcare education chatbot I developed in AIML-500 Workshop 1. I chose
+      this project because of my experience with EHR applications and my interest in applying AI to
       healthcare-related problems.
     </p>
   </section>
@@ -120,7 +129,7 @@
     </p>
 
     <div class="test-grid">
-      <div class="test-card"><h3>Introduction</h3><span class="test-status">Passed in scenario testing</span></div>
+      <div class="test-card"><h3>Assistant Introduction</h3><span class="test-status">Passed in scenario testing</span></div>
       <div class="test-card"><h3>Diabetes Education</h3><span class="test-status">Passed in scenario testing</span></div>
       <div class="test-card"><h3>Medication Safety</h3><span class="test-status">Passed in scenario testing</span></div>
       <div class="test-card"><h3>RBAC and Privacy</h3><span class="test-status">Passed in scenario testing</span></div>
@@ -140,22 +149,25 @@
     <div class="evidence-gallery">
       <figure class="evidence-item">
         <div class="evidence-shot">
-          <img class="evidence-img" src="assets/images/healthguide-diabetes.png" alt="HealthGuide AI explaining Type 1 and Type 2 diabetes in simple language">
-          <div class="evidence-placeholder">Screenshot pending: Diabetes Education response</div>
+          <button type="button" class="evidence-trigger" aria-label="View larger: HealthGuide AI explaining Type 1 and Type 2 diabetes in simple language">
+            <img class="evidence-img" src="assets/images/healthguide-diabetes.png" alt="HealthGuide AI explaining Type 1 and Type 2 diabetes in simple language">
+          </button>
         </div>
         <figcaption>HealthGuide AI explaining Type 1 and Type 2 diabetes.</figcaption>
       </figure>
       <figure class="evidence-item">
         <div class="evidence-shot">
-          <img class="evidence-img" src="assets/images/healthguide-medication-safety.png" alt="HealthGuide AI declining to prescribe an antibiotic or provide an exact dose">
-          <div class="evidence-placeholder">Screenshot pending: Medication Safety response</div>
+          <button type="button" class="evidence-trigger" aria-label="View larger: HealthGuide AI declining to prescribe an antibiotic or provide an exact dose">
+            <img class="evidence-img" src="assets/images/healthguide-medication-safety.png" alt="HealthGuide AI declining to prescribe an antibiotic or provide an exact dose">
+          </button>
         </div>
         <figcaption>Medication safety test using a fictional patient.</figcaption>
       </figure>
       <figure class="evidence-item">
         <div class="evidence-shot">
-          <img class="evidence-img" src="assets/images/healthguide-version-update.png" alt="ChatGPT Plugin Creator confirming the Version 0.1.1 update with revised emergency and crisis instructions">
-          <div class="evidence-placeholder">Screenshot pending: Version 0.1.1 update confirmation</div>
+          <button type="button" class="evidence-trigger" aria-label="View larger: ChatGPT Plugin Creator confirming the Version 0.1.1 update with revised emergency and crisis instructions">
+            <img class="evidence-img" src="assets/images/healthguide-version-update.png" alt="ChatGPT Plugin Creator confirming the Version 0.1.1 update with revised emergency and crisis instructions">
+          </button>
         </div>
         <figcaption>Safety instructions updated and subsequently tested.</figcaption>
       </figure>
@@ -176,7 +188,7 @@
       The project combines general healthcare education with explicit restrictions on medical
       decisions, personal information, uncertainty, and emergency handling.
     </p>
-    <p>It also includes a documented development improvement from Version 0.1.0 to Version 0.1.1.</p>
+    <p>It also documents the improvements made from Version 0.1.0 to 0.1.1.</p>
   </section>
 
   <section>
@@ -204,15 +216,14 @@
     <h2>Project Access</h2>
     <p>HealthGuide AI was created as a private prototype.</p>
     <p>
-      Project link:
-      <a class="inline-link" href="https://chatgpt.com/plugins/plugins_6ae3e70805b881919d6ee0c6aef2d939" target="_blank" rel="noopener">https://chatgpt.com/plugins/plugins_6ae3e70805b881919d6ee0c6aef2d939</a>
+      <a class="inline-link" href="https://chatgpt.com/plugins/plugins_6ae3e70805b881919d6ee0c6aef2d939" target="_blank" rel="noopener">View HealthGuide AI Prototype</a>
     </p>
     <p class="caveat">The link may be inaccessible to visitors. The screenshots above demonstrate the actual prototype and testing process.</p>
   </section>
 
 </main>
 
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
   <button class="lightbox-close" aria-label="Close image">&times;</button>
   <img src="" alt="">
 </div>

@@ -12,6 +12,13 @@
   --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --max-width: 1100px;
+  /* Elements that combine max-width with their own horizontal padding need
+     this instead of --max-width, so the padding doesn't eat into the content
+     box (padding counts inside max-width under border-box). Keeps content
+     width consistent at exactly 1100px everywhere: sections with padding
+     (.section, .page-header, .artifact-body, .nav-inner) and padding-free
+     wrappers (.hero-inner, .section.alt > *) now align identically. */
+  --content-width: calc(1100px + 3rem);
   --measure: 58ch;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -138,6 +145,23 @@ button:focus-visible,
   transform: translateY(0);
 }
 
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: top 200ms var(--ease-out);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
 /* NAVBAR */
 #navbar {
   position: fixed;
@@ -148,7 +172,7 @@ button:focus-visible,
 }
 
 .nav-inner {
-  max-width: var(--max-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 1rem 1.5rem;
   display: flex;
@@ -180,10 +204,16 @@ button:focus-visible,
 #navToggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
+  z-index: 101;
 }
 #navToggle span {
   width: 24px; height: 2px;
@@ -196,8 +226,7 @@ button:focus-visible,
 
 /* HERO */
 .hero {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  width: 100%;
   padding: 8rem 1.5rem 6rem;
   position: relative;
   z-index: 1;
@@ -218,11 +247,11 @@ button:focus-visible,
   .hero:hover::before { opacity: 1; }
 }
 
-.hero-inner { width: 100%; position: relative; z-index: 1; }
+.hero-inner { max-width: var(--max-width); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 3rem;
   align-items: center;
   width: 100%;
@@ -334,6 +363,8 @@ button:focus-visible,
   background: var(--surface);
   border-radius: 12px;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 .code-panel-header {
   display: flex;
@@ -355,7 +386,7 @@ button:focus-visible,
 
 /* SECTIONS */
 .section {
-  max-width: var(--max-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 6rem 1.5rem;
   position: relative;
@@ -418,7 +449,7 @@ button:focus-visible,
 /* PROJECTS */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
 }
 .project-card {
@@ -435,7 +466,23 @@ button:focus-visible,
   border-color: var(--accent);
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
-.project-card.featured { grid-column: 1 / -1; }
+.project-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+.featured-main { flex: 1 1 auto; min-width: 0; }
+.featured-main p { max-width: 70ch; }
+.featured-side {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.featured-side .tag-list { justify-content: flex-end; margin-top: 0; }
 .project-badge {
   display: inline-block;
   font-size: var(--text-label);
@@ -548,11 +595,12 @@ footer {
   position: relative;
   z-index: 1;
 }
+footer p { margin-inline: auto; }
 footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
 
 /* PAGE HEADER (projects / artifact pages) */
 .page-header {
-  max-width: var(--max-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 8rem 1.5rem 2rem;
   position: relative;
@@ -578,6 +626,7 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
   border-radius: 14px;
   padding: 2.25rem;
   margin-bottom: 2rem;
+  scroll-margin-top: 96px;
 }
 .project-detail .detail-eyebrow {
   font-size: var(--text-label);
@@ -597,7 +646,7 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
   margin-bottom: 0.4rem;
 }
 .detail-subsections .sub-card p { color: var(--text); font-size: var(--text-base); }
-.project-detail p { color: var(--text); margin-bottom: 1rem; }
+.project-detail p { color: var(--text); margin-bottom: 1rem; max-width: 62ch; }
 .skills-demonstrated {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
@@ -616,7 +665,7 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
 
 /* ARTIFACT PAGE */
 .artifact-body {
-  max-width: var(--max-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 1rem 1.5rem 5rem;
   position: relative;
@@ -674,24 +723,24 @@ footer .footer-tagline { font-size: var(--text-label); margin-top: 0.3rem; }
   aspect-ratio: 16 / 10;
   background: var(--bg);
 }
+.evidence-trigger {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+.evidence-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
 .evidence-img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   cursor: zoom-in;
   display: none;
 }
 .evidence-img.loaded { display: block; }
-.evidence-placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--text-dim);
-  font-size: var(--text-label);
-  border: 1px dashed var(--border);
-}
 figcaption {
   padding: 1rem;
   font-size: var(--text-label);
@@ -743,10 +792,12 @@ figcaption {
 
 /* RESPONSIVE */
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .about-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
-  .project-card.featured { grid-column: auto; }
+  .project-card.featured { grid-column: auto; flex-direction: column; align-items: stretch; }
+  .featured-side { align-items: flex-start; }
+  .featured-side .tag-list { justify-content: flex-start; }
   .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
 }
 
@@ -763,8 +814,13 @@ figcaption {
     transform: translateX(100%);
     transition: transform 300ms var(--ease-in-out);
     gap: 2rem;
+    z-index: 100;
   }
   .nav-links.open { transform: translateX(0); }
   #navToggle { display: flex; }
   .education-item { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .hero-name { font-size: 2.75rem; }
 }
