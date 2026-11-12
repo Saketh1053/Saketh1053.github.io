@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOTOCRAFT | Saketh Reddy Maddula</title>
+<meta name="description" content="MOTOCRAFT: an AI-assisted vehicle acquisition and dealership management platform, in active development.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saketh Reddy Maddula">
+<meta property="og:title" content="MOTOCRAFT | Saketh Reddy Maddula">
+<meta property="og:description" content="MOTOCRAFT: an AI-assisted vehicle acquisition and dealership management platform, in active development.">
+<meta property="og:url" content="https://saketh1053.github.io/motocraft.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090c11'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%2352f2c8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="noise" aria-hidden="true"></div>
+<span class="cur-dot" aria-hidden="true"></span>
+<span class="cur-ring" aria-hidden="true"></span>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#home" class="logo">SRM<span>.</span></a>
+    <button id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home"><span data-text="Home">Home</span></a></li>
+      <li><a href="index.html#about"><span data-text="About">About</span></a></li>
+      <li><a href="index.html#work" class="active"><span data-text="Work">Work</span></a></li>
+      <li><a href="index.html#experience"><span data-text="Experience">Experience</span></a></li>
+      <li><a href="index.html#education"><span data-text="Education">Education</span></a></li>
+      <li><a href="index.html#contact"><span data-text="Contact">Contact</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="tag-row">
+    <span>Personal Project</span><span>Work in Progress</span><span>v0.1 Demo</span>
+  </div>
+  <h1>MOTOCRAFT</h1>
+  <p class="page-intro" style="color: var(--ink); font-weight: 600; margin-top: 0.5rem;">AI-Powered Vehicle Acquisition and Dealership Management</p>
+  <p class="page-intro">
+    A dealership management platform I'm building that brings vehicle inventory, acquisitions,
+    repairs, sales, and finances into one system, alongside an AI-assisted vehicle analysis
+    workflow designed to help evaluate potential purchases.
+  </p>
+  <ul class="tag-list" style="margin-top: 1rem;">
+    <li>Next.js</li><li>React</li><li>TypeScript</li><li>Groq API</li><li>NHTSA VIN API</li>
+  </ul>
+</header>
+
+<main id="main" class="artifact-body">
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      MOTOCRAFT is an ongoing personal project exploring how AI can support dealership operations
+      and vehicle purchasing decisions. The public demo is an interactive, fully client-side
+      preview: dashboard, inventory, acquisitions, repairs, sales, and finance screens all run on
+      fictional sample data that resets on reload, with no backend, database, or real accounts
+      involved.
+    </p>
+  </section>
+
+  <section>
+    <h2>AI Vehicle Analysis</h2>
+    <p>
+      The core idea behind MOTOCRAFT is an AI-assisted analysis workflow for evaluating a vehicle
+      before buying it. This part of the project is actively being built; the capabilities below
+      describe the intended design rather than a finished, production-connected feature.
+    </p>
+    <ul class="plain-list">
+      <li>Vehicle analysis through Groq-hosted large language models, using details like make,
+        model, mileage, price, condition, and history to produce estimated costs, risks, and a
+        projected gross profit.</li>
+      <li>VIN decoding against the NHTSA vehicle information API, to cross-check entered details
+        against known specifications.</li>
+      <li>Supporting document and image input (PDF, photos, DOCX, CSV/JSON) to feed additional
+        context into an analysis.</li>
+      <li>Voice input using Whisper, so vehicle details can be spoken instead of typed.</li>
+      <li>Vehicle listing lookup by URL, to pull in advertised details and flag possible warning
+        signs &mdash; without claiming to verify a listing or catch every scam.</li>
+    </ul>
+    <p class="caveat">
+      AI estimates are meant to support a purchasing decision, not replace a professional
+      inspection, and depend on the accuracy of the information supplied.
+    </p>
+  </section>
+
+  <section>
+    <h2>Dealership Management</h2>
+    <p>
+      Alongside the AI workflow, the demo includes a broader dealership management experience: an
+      interactive dashboard, vehicle inventory and acquisitions, repair and parts tracking,
+      customer and sales records, financial reports, and exportable data (PDF, Excel, CSV). A
+      lightweight role-preview system shows how different staff views might look, without acting
+      as real authentication.
+    </p>
+  </section>
+
+  <section>
+    <h2>Technologies Used</h2>
+    <ul class="tag-list">
+      <li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li>
+      <li>Groq API</li><li>Whisper Speech-to-Text</li><li>NHTSA VIN API</li>
+      <li>Vitest</li><li>Playwright</li><li>GitHub Pages</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Current Development Status</h2>
+    <p>
+      MOTOCRAFT is a work in progress. The live demo runs entirely in the browser with temporary,
+      fictional business records and no persistence between sessions &mdash; it is not yet a
+      production-ready system.
+    </p>
+    <p>Planned next:</p>
+    <ul class="plain-list">
+      <li>Persistent database storage</li>
+      <li>Secure, server-side authentication and role-based access control</li>
+      <li>Production AI integration and additional testing/validation</li>
+      <li>Multi-user support and secure document storage</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Project Links</h2>
+    <p>
+      <a class="inline-link" href="https://motocraft-project.github.io/" target="_blank" rel="noopener">View Live Demo</a>
+    </p>
+    <p>
+      <a class="inline-link" href="https://github.com/motocraft-Project/motocraft-Project.github.io" target="_blank" rel="noopener">View GitHub Repository</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>Saketh Reddy Maddula &middot; <span id="year"></span></p>
+  <p>Software Engineer &middot; AI/ML &middot; Healthcare Technology</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

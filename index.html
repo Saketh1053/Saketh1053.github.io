@@ -10,81 +10,90 @@
 <meta property="og:title" content="Saketh Reddy Maddula | Software Engineer, AI/ML, Healthcare Technology">
 <meta property="og:description" content="Portfolio of Saketh Reddy Maddula: software engineering, applied AI/ML, and healthcare technology projects.">
 <meta property="og:url" content="https://saketh1053.github.io/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23a08672'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090c11'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%2352f2c8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<div class="noise"><span class="cursor-glow"></span><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span><span class="particle" style="--x:4%; --dur:13s; --delay:0s;"></span><span class="particle" style="--x:12%; --dur:17s; --delay:3s;"></span><span class="particle" style="--x:20%; --dur:11s; --delay:1s;"></span><span class="particle" style="--x:29%; --dur:19s; --delay:5s;"></span><span class="particle" style="--x:37%; --dur:15s; --delay:2s;"></span><span class="particle" style="--x:45%; --dur:21s; --delay:7s;"></span><span class="particle" style="--x:53%; --dur:12s; --delay:4s;"></span><span class="particle" style="--x:61%; --dur:18s; --delay:0.5s;"></span><span class="particle" style="--x:69%; --dur:14s; --delay:6s;"></span><span class="particle" style="--x:77%; --dur:20s; --delay:2.5s;"></span><span class="particle" style="--x:85%; --dur:16s; --delay:8s;"></span><span class="particle" style="--x:93%; --dur:13s; --delay:1.5s;"></span></div>
+<div class="noise" aria-hidden="true"></div>
+<span class="cur-dot" aria-hidden="true"></span>
+<span class="cur-ring" aria-hidden="true"></span>
+
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-panel">
+    <p class="loader-readout mono" id="loaderReadout">&nbsp;<span class="loader-caret">&nbsp;</span></p>
+    <div class="loader-keys" id="loaderKeys"></div>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
+  </div>
+</div>
 
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html#home" class="logo">SRM<span>.</span></a>
-    <button id="navToggle" aria-label="Toggle menu">
+    <button id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#skills">Skills</a></li>
-      <li><a href="index.html#experience">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="index.html#education">Education</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="#home"><span data-text="Home">Home</span></a></li>
+      <li><a href="#about"><span data-text="About">About</span></a></li>
+      <li><a href="#work"><span data-text="Work">Work</span></a></li>
+      <li><a href="#experience"><span data-text="Experience">Experience</span></a></li>
+      <li><a href="#education"><span data-text="Education">Education</span></a></li>
+      <li><a href="#contact"><span data-text="Contact">Contact</span></a></li>
     </ul>
   </div>
 </nav>
 
+<div class="avatar-stage" id="avatarStage" aria-hidden="true">
+  <div class="avatar-halo"></div>
+</div>
+
 <main id="main">
+  <div id="wrap">
 
   <!-- HERO -->
   <section id="home" class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="keydrop-zone" id="keydropZone" aria-hidden="true"></div>
     <div class="hero-inner">
-      <h1 class="hero-name">Saketh Reddy <br>Maddula<span class="hero-dot">.</span></h1>
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h2>Software Engineer | AI/ML | Healthcare Technology</h2>
-          <p class="hero-desc">
-            I work on full-stack healthcare applications, API integration, database reliability, and
-            applied AI projects. My experience includes developing and testing EHR workflows and
-            evaluating language models for healthcare use cases.
-          </p>
-          <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary">View Projects</a>
-            <a href="healthguide-ai.html" class="btn btn-ghost">Explore HealthGuide AI</a>
-          </div>
-          <ul class="hero-tags">
-            <li>Full-Stack Development</li>
-            <li>Healthcare Technology</li>
-            <li>Applied AI</li>
-          </ul>
-        </div>
-        <div class="hero-visual">
-          <div class="code-panel">
-            <div class="code-panel-header">
-              <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
-            </div>
-            <pre><span class="ck">const</span> profile = {
-  name: <span class="cs">"Saketh Reddy Maddula"</span>,
-  role: <span class="cs">"Software Engineer"</span>,
-  focus: [<span class="cs">"Full-Stack"</span>, <span class="cs">"AI/ML"</span>, <span class="cs">"Healthcare"</span>],
-  currentlyAt: <span class="cs">"Solix Technologies"</span>,
-  building: <span class="cs">"HealthGuide AI"</span>
-};</pre>
-          </div>
-        </div>
+      <h1 class="hero-name"><span class="hero-hello mono">Hi, I'm</span><span class="hn">Saketh Reddy</span><span class="hn">Maddula<span class="accent">.</span></span></h1>
+      <div class="hero-roles">
+        <span class="mono">Currently working as a</span>
+        <span class="role-mask" id="roleMask">
+          <span class="role active">Software Engineer</span>
+          <span class="role">AI/ML Engineer</span>
+          <span class="role">Full-Stack Developer</span>
+        </span>
       </div>
+      <p class="hero-meta">
+        I work on full-stack healthcare applications, API integration, database reliability, and
+        applied AI projects — developing and testing EHR workflows and evaluating language models
+        for healthcare use cases.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn">View Work</a>
+        <a href="healthguide-ai.html" class="link">Explore HealthGuide AI &rarr;</a>
+      </div>
+      <ul class="hero-tags">
+        <li>Full-Stack Development</li>
+        <li>Healthcare Technology</li>
+        <li>Applied AI</li>
+      </ul>
     </div>
+    <p class="mono hero-scroll">Scroll to explore</p>
+    <p class="mono keydrop-hint">Press a key, or type S A K E T H.</p>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
+  <section id="about" class="section about">
+    <div class="about-body">
+      <h2 class="about-lead">Healthcare systems, built so the people depending on them can trust them.</h2>
       <div class="about-text">
         <p>
           I am a software engineering professional with experience in full-stack development,
@@ -95,8 +104,7 @@
         <p>
           At Solix Technologies, I work on an Electronic Health Record (EHR) platform, contributing
           to frontend and backend development, API integration, database improvements, and
-          application testing. My work covers Pharmacy, Inventory, Operation Theatre, and
-          Diagnostics within the same healthcare platform.
+          application testing across Pharmacy, Inventory, Operation Theatre, and Diagnostics.
         </p>
         <p>
           I have also worked on language model research and evaluation through MedHELM. My main
@@ -104,207 +112,230 @@
           exploring practical applications of AI.
         </p>
       </div>
-      <aside class="about-facts">
-        <div class="fact">
-          <span class="fact-label">Role</span>
-          <span class="fact-value">Software Engineer</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">Focus</span>
-          <span class="fact-value">AI/ML, Healthcare Technology</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">Currently at</span>
-          <span class="fact-value">Solix Technologies</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">Studying at</span>
-          <span class="fact-value">Indiana Wesleyan University</span>
-        </div>
-      </aside>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-label">Role</span><span class="fact-value">Software Engineer</span></div>
+        <div class="fact"><span class="fact-label">Focus</span><span class="fact-value">AI/ML, Healthcare Technology</span></div>
+        <div class="fact"><span class="fact-label">Currently at</span><span class="fact-value">Solix Technologies</span></div>
+        <div class="fact"><span class="fact-label">Studying at</span><span class="fact-value">Indiana Wesleyan University</span></div>
+      </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section alt">
-    <h2 class="section-title">Technical Skills</h2>
-    <ul class="skills-list">
-      <li class="skills-row">
-        <h3>Programming</h3>
-        <p>Python, SQL, R, JavaScript, TypeScript, HTML, CSS</p>
+  <!-- FOCUS GRID -->
+  <section class="section" aria-label="Areas of focus">
+    <h2 class="h2">What I focus on.</h2>
+    <ul class="focus-grid">
+      <li class="card focus-card">
+        <span class="focus-num mono">01</span>
+        <h3>Full-Stack Development</h3>
+        <p>React and Node.js front to back, with an eye on API design, database integrity, and clean integration between services.</p>
       </li>
-      <li class="skills-row">
-        <h3>AI / Machine Learning</h3>
-        <p>LLMs, NLP, Scikit-learn, TensorFlow, PyTorch, RAG, Pandas, NumPy</p>
+      <li class="card focus-card">
+        <span class="focus-num mono">02</span>
+        <h3>Healthcare Technology</h3>
+        <p>Pharmacy, inventory, operation theatre, and diagnostics workflows inside a production EHR platform used across hospital departments.</p>
       </li>
-      <li class="skills-row">
-        <h3>Frameworks</h3>
-        <p>React, Node.js, Django, FastAPI, Flask, REST APIs</p>
-      </li>
-      <li class="skills-row">
-        <h3>Databases</h3>
-        <p>PostgreSQL, SQL Server, MySQL, MongoDB</p>
-      </li>
-      <li class="skills-row">
-        <h3>Cloud and DevOps</h3>
-        <p>AWS, Docker, Kubernetes, Jenkins, GitHub</p>
-      </li>
-      <li class="skills-row">
-        <h3>Other Tools</h3>
-        <p>Power BI, Tableau, Splunk, VS Code, Jira, Confluence</p>
+      <li class="card focus-card">
+        <span class="focus-num mono">03</span>
+        <h3>Applied AI</h3>
+        <p>Evaluating language models for healthcare use cases, prompt design, and testing AI behavior against safety and accuracy requirements.</p>
       </li>
     </ul>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <h2 class="section-title">Professional Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-when">
-          <p class="timeline-meta">Solix Technologies &middot; Sep 2025 &ndash; Present</p>
-        </div>
-        <div class="timeline-content">
-          <h3>Software Engineer &middot; EHR Platform Engineering</h3>
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>PYTHON <i>&bull;</i></span><span class="outline">REACT <i>&bull;</i></span><span>NODE.JS <i>&bull;</i></span><span class="outline">POSTGRESQL <i>&bull;</i></span><span>DOCKER <i>&bull;</i></span><span class="outline">KUBERNETES <i>&bull;</i></span><span>LLMS <i>&bull;</i></span><span class="outline">RAG <i>&bull;</i></span>
+      <span>PYTHON <i>&bull;</i></span><span class="outline">REACT <i>&bull;</i></span><span>NODE.JS <i>&bull;</i></span><span class="outline">POSTGRESQL <i>&bull;</i></span><span>DOCKER <i>&bull;</i></span><span class="outline">KUBERNETES <i>&bull;</i></span><span>LLMS <i>&bull;</i></span><span class="outline">RAG <i>&bull;</i></span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work" class="work" aria-label="Selected work">
+    <div class="work-head">
+      <div>
+        <h2 class="h2">Platforms I have built and evaluated.</h2>
+      </div>
+      <div class="work-progress"><i id="workProgress"></i></div>
+    </div>
+    <div class="work-track" id="workTrack" tabindex="0" aria-label="Scrollable project list, swipe or scroll sideways">
+
+      <article class="card work-card">
+        <h3>EHR Platform Development</h3>
+        <p class="work-badge">Solix Technologies &middot; Full-Stack Healthcare Engineering</p>
+        <p>
+          An integrated Electronic Health Record platform used across multiple hospital departments.
+          I contribute to Pharmacy and Inventory workflows, Operation Theatre microservices, and
+          Diagnostics (Radiology, Cardiology, Neurology, Pulmonology) &mdash; frontend and backend
+          development, API integration, database integrity, RBAC, and application testing.
+        </p>
+        <ul class="chips">
+          <li>React</li><li>Node.js</li><li>PostgreSQL</li><li>REST APIs</li><li>RBAC</li>
+        </ul>
+      </article>
+
+      <article class="card work-card">
+        <h3>MedHELM</h3>
+        <p class="work-badge">Solix Technologies &middot; Applied Healthcare AI</p>
+        <p>
+          A voice- and text-based clinical decision-support prototype built to evaluate how well
+          language models handle healthcare information tasks &mdash; organizing evaluation tasks and
+          reviewing model responses for accuracy and safety against human review.
+        </p>
+        <ul class="chips">
+          <li>Python</li><li>LLMs</li><li>Prompt Engineering</li><li>AI Evaluation</li>
+        </ul>
+      </article>
+
+      <article class="card work-card">
+        <h3>UPS Management System</h3>
+        <p class="work-badge">Infrastructure Monitoring &middot; September 2024</p>
+        <p>
+          A Django application for monitoring UPS (uninterruptible power supply) equipment using
+          SNMP, collecting real-time battery status and health data from networked devices, deployed
+          with Kubernetes for container orchestration.
+        </p>
+        <ul class="chips">
+          <li>Django</li><li>Python</li><li>SNMP</li><li>Kubernetes</li>
+        </ul>
+      </article>
+
+      <article class="card work-card featured">
+        <h3>HealthGuide AI</h3>
+        <p class="work-badge">IWU &middot; AIML-500 &middot; Workshop 1 &middot; Artifact 1</p>
+        <p>
+          A healthcare education chatbot with defined safety restrictions around diagnoses,
+          prescriptions, sensitive information, and emergencies &mdash; nine documented test scenarios,
+          all passing against the fictional scenarios used.
+        </p>
+        <ul class="chips">
+          <li>Generative AI</li><li>Prompt Design</li><li>Safety Testing</li>
+        </ul>
+        <a href="healthguide-ai.html" class="card-cta">View full case study &rarr;</a>
+      </article>
+
+      <article class="card work-card">
+        <h3>MOTOCRAFT</h3>
+        <p class="work-badge">Personal Project &middot; Work in Progress</p>
+        <p>
+          An AI-assisted dealership management platform in active development &mdash; bringing vehicle
+          inventory, acquisitions, repairs, sales, and finances into one system, alongside an
+          AI-powered vehicle analysis workflow being built to help evaluate potential purchases.
+        </p>
+        <ul class="chips">
+          <li>Next.js</li><li>React</li><li>TypeScript</li><li>Groq API</li><li>Tailwind CSS</li>
+        </ul>
+        <a href="motocraft.html" class="card-cta">View project details &rarr;</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <section id="experience" class="section" aria-label="Professional experience">
+    <h2 class="h2">Where I have worked.</h2>
+    <div class="tl">
+      <div class="tl-line"><i class="tl-fill" id="tlFill"></i></div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-when">Sep 2025 &ndash; Present</p>
+        <div>
+          <h3>Software Engineer &middot; Solix Technologies</h3>
           <p>
             Working on an integrated EHR platform, including Pharmacy, Inventory, Operation Theatre,
-            and Diagnostics. Contributions include full-stack development, API integration,
-            database integrity improvements, RBAC, debugging, and end-to-end testing. Also
-            contributing to healthcare AI research and LLM evaluation.
+            and Diagnostics. Full-stack development, API integration, database integrity
+            improvements, RBAC, debugging, end-to-end testing, and healthcare AI research.
           </p>
-          <ul class="tag-list">
-            <li>React</li><li>Node.js</li><li>PostgreSQL</li><li>RBAC</li>
-          </ul>
+          <ul class="chips"><li>React</li><li>Node.js</li><li>PostgreSQL</li><li>RBAC</li></ul>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-when">
-          <p class="timeline-meta">Marist College &middot; Dec 2022 &ndash; Jul 2023</p>
-        </div>
-        <div class="timeline-content">
-          <h3>Web Technical Consultant / QA Tester</h3>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-when">Dec 2022 &ndash; Jul 2023</p>
+        <div>
+          <h3>Web Technical Consultant / QA Tester &middot; Marist College</h3>
           <p>
             Worked on website improvements, Liferay development, regression testing, defect
             identification, and coordination with teams to resolve issues.
           </p>
-          <ul class="tag-list">
-            <li>Liferay</li><li>QA Testing</li><li>Regression Testing</li>
-          </ul>
+          <ul class="chips"><li>Liferay</li><li>QA Testing</li><li>Regression Testing</li></ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED PROJECTS -->
-  <section id="projects" class="section alt">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-
-      <article class="project-card">
-        <h3>EHR Platform Development</h3>
-        <p>
-          An integrated healthcare platform covering Pharmacy, Inventory, Operation Theatre, and
-          Diagnostics.
-        </p>
-        <ul class="tag-list">
-          <li>React</li><li>Node.js</li><li>PostgreSQL</li><li>APIs</li><li>RBAC</li>
-        </ul>
-        <a href="projects.html#ehr-platform" class="card-link">View details &rarr;</a>
-      </article>
-
-      <article class="project-card">
-        <h3>MedHELM</h3>
-        <p>
-          Healthcare AI prototype exploring language model evaluation and clinical information
-          tasks.
-        </p>
-        <ul class="tag-list">
-          <li>Python</li><li>LLMs</li><li>AI Evaluation</li>
-        </ul>
-        <a href="projects.html#medhelm" class="card-link">View details &rarr;</a>
-      </article>
-
-      <article class="project-card">
-        <h3>UPS Management System</h3>
-        <p>
-          A monitoring application for UPS equipment using SNMP and containerized infrastructure.
-        </p>
-        <ul class="tag-list">
-          <li>Django</li><li>Python</li><li>Kubernetes</li><li>SNMP</li>
-        </ul>
-        <a href="projects.html#ups-management" class="card-link">View details &rarr;</a>
-      </article>
-
-      <article class="project-card featured">
-        <div class="featured-main">
-          <span class="project-badge">AIML-500 &middot; Workshop 1 &middot; Artifact 1</span>
-          <h3>HealthGuide AI</h3>
-          <p>
-            A healthcare education chatbot with defined safety restrictions and nine documented test
-            scenarios.
-          </p>
-        </div>
-        <div class="featured-side">
-          <ul class="tag-list">
-            <li>Generative AI</li><li>Prompt Design</li><li>Safety Testing</li>
-          </ul>
-          <a href="healthguide-ai.html" class="card-link">View full case study &rarr;</a>
-        </div>
-      </article>
-
+  <!-- SKILLS CONSTELLATION -->
+  <section class="section stack" aria-label="Technical skills">
+    <div class="stack-head">
+      <h2 class="h2">Tools I reach for.</h2>
+      <p class="stack-hint mono">Drag to spin &middot; hover a tag</p>
     </div>
+    <div class="stack-canvas-wrap" id="stackCanvasWrap"></div>
+    <ul class="stack-fallback">
+      <li>Python</li><li>SQL</li><li>R</li><li>JavaScript</li><li>TypeScript</li>
+      <li>React</li><li>Node.js</li><li>Django</li><li>FastAPI</li><li>Flask</li>
+      <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li>
+      <li>AWS</li><li>Docker</li><li>Kubernetes</li>
+      <li>LLMs</li><li>NLP</li><li>PyTorch</li><li>TensorFlow</li>
+    </ul>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="section">
-    <h2 class="section-title">Education</h2>
-    <div class="education-list">
-      <div class="education-item">
-        <div>
-          <h3>Indiana Wesleyan University</h3>
-          <p class="edu-qual">Computer and Information Sciences, specialization in Artificial Intelligence</p>
-        </div>
-        <span class="edu-meta">Currently enrolled</span>
+  <!-- EDUCATION + SKILLS -->
+  <section id="education" class="section" aria-label="Education and skills">
+    <h2 class="mono" style="color: var(--muted); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 36px;">Education &amp; Skills</h2>
+    <div class="honors">
+    <div class="honors-col">
+      <h3 class="mono">Education</h3>
+      <div class="row">
+        <p class="row-when">Current</p>
+        <div><h4>Indiana Wesleyan University</h4><p>Computer and Information Sciences, specialization in Artificial Intelligence</p></div>
       </div>
-      <div class="education-item">
-        <div>
-          <h3>Marist College</h3>
-          <p class="edu-qual">Master's in Information Systems &middot; GPA 3.54</p>
-        </div>
-        <span class="edu-meta">Jan 2022 &ndash; Jan 2024</span>
+      <div class="row">
+        <p class="row-when">Jan 2022 &ndash; Jan 2024</p>
+        <div><h4>Marist College</h4><p>Master's in Information Systems &middot; GPA 3.54</p></div>
       </div>
-      <div class="education-item">
-        <div>
-          <h3>Digiquest Academy</h3>
-          <p class="edu-qual">Bachelor of Fine Arts &middot; GPA 3.70</p>
-        </div>
-        <span class="edu-meta">Jul 2017 &ndash; May 2021</span>
+      <div class="row">
+        <p class="row-when">Jul 2017 &ndash; May 2021</p>
+        <div><h4>Digiquest Academy</h4><p>Bachelor of Fine Arts &middot; GPA 3.70</p></div>
       </div>
+    </div>
+    <div class="honors-col">
+      <h3 class="mono">Technical Skills</h3>
+      <div class="skill-rows">
+        <div class="skill-row"><h4>Programming</h4><p>Python, SQL, R, JavaScript, TypeScript, HTML, CSS</p></div>
+        <div class="skill-row"><h4>AI / ML</h4><p>LLMs, NLP, Scikit-learn, TensorFlow, PyTorch, RAG, Pandas, NumPy</p></div>
+        <div class="skill-row"><h4>Frameworks</h4><p>React, Node.js, Django, FastAPI, Flask, REST APIs</p></div>
+        <div class="skill-row"><h4>Databases</h4><p>PostgreSQL, SQL Server, MySQL, MongoDB</p></div>
+        <div class="skill-row"><h4>Cloud / DevOps</h4><p>AWS, Docker, Kubernetes, Jenkins, GitHub</p></div>
+        <div class="skill-row"><h4>Other Tools</h4><p>Power BI, Tableau, Splunk, VS Code, Jira, Confluence</p></div>
+      </div>
+    </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section alt contact-section">
-    <h2 class="section-title center">Let's Connect</h2>
-    <p class="contact-desc">
-      I'm open to opportunities in software engineering, AI/ML, and healthcare technology. Feel
-      free to reach out.
-    </p>
+  <section id="contact" class="contact" aria-label="Contact">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <h2 class="contact-title">I'm open to opportunities in software engineering, AI/ML, and healthcare technology. Say hello &mdash; I answer every message.</h2>
+    <a href="mailto:Saketh1053@gmail.com" class="contact-email">Saketh1053@gmail.com</a>
     <div class="contact-links">
-      <a href="mailto:Saketh1053@gmail.com">Saketh1053@gmail.com</a>
       <a href="tel:+16073911053">(607) 391-1053</a>
+      <a href="healthguide-ai.html">HealthGuide AI case study</a>
     </div>
   </section>
 
+  <footer class="foot">
+    <p>Saketh Reddy Maddula &middot; <span id="year"></span></p>
+    <p>Software Engineer &middot; AI/ML &middot; Healthcare Technology</p>
+  </footer>
+
+  </div>
 </main>
 
-<footer>
-  <p>Saketh Reddy Maddula &middot; <span id="year"></span></p>
-  <p class="footer-tagline">Software Engineer | AI/ML | Healthcare Technology</p>
-</footer>
-
 <script src="js/script.js"></script>
+<script type="module" src="js/scene.js"></script>
 </body>
 </html>
