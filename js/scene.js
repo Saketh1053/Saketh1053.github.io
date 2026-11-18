@@ -69,7 +69,7 @@ function makeLabelSprite(text, colorHex) {
 
   const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
   const sprite = new THREE.Sprite(material);
-  const worldHeight = 0.5;
+  const worldHeight = 0.6;
   const aspect = canvas.width / canvas.height;
   sprite.scale.set(worldHeight * aspect, worldHeight, 1);
   sprite.userData.baseScale = sprite.scale.clone();
@@ -84,7 +84,13 @@ function initStackScene() {
   let height = container.clientHeight;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
+  // FOV is widened (not the camera pulled back) so a pole-aligned label, at
+  // full sprite size, stays inside the vertical frustum at every rotation --
+  // a label near the top/bottom of the sphere was getting clipped by the
+  // renderer's own viewport edge otherwise, which no amount of DOM
+  // overflow/padding can fix since it's a 3D camera bound, not a CSS one.
+  // Camera distance stays at the original value so the cloud doesn't shrink.
+  const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
   camera.position.set(0, 0, 7.5);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -96,17 +102,26 @@ function initStackScene() {
   const group = new THREE.Group();
   scene.add(group);
 
+  const sphereRadius = 2.7;
   const sprites = SKILLS.map((skill, i) => {
     const count = SKILLS.length;
     const y = 1 - (i / (count - 1)) * 2;
     const r = Math.sqrt(Math.max(1 - y * y, 0));
     const theta = Math.PI * (1 + Math.sqrt(5)) * i;
-    const radius = 2.7;
     const sprite = makeLabelSprite(skill.label, skill.color);
-    sprite.position.set(Math.cos(theta) * r * radius, y * radius, Math.sin(theta) * r * radius);
+    sprite.position.set(Math.cos(theta) * r * sphereRadius, y * sphereRadius, Math.sin(theta) * r * sphereRadius);
     group.add(sprite);
     return sprite;
   });
+
+  // Labels on the near and far side of the sphere can project to the same
+  // screen spot and visually collide, since a billboarded sprite has no
+  // depth cue of its own. Shrinking and fading each label by its actual
+  // distance from the camera each frame pushes far-side labels visually
+  // behind near ones instead of competing for the same pixels.
+  const depthNear = camera.position.z - sphereRadius;
+  const depthFar = camera.position.z + sphereRadius;
+  const worldPos = new THREE.Vector3();
 
   const raycaster = new THREE.Raycaster();
   const pointerNDC = new THREE.Vector2(-10, -10);
@@ -177,10 +192,20 @@ function initStackScene() {
       velX *= 0.98;
     }
     sprites.forEach(sprite => {
-      const target = sprite === hovered ? 1.35 : 1;
+      sprite.getWorldPosition(worldPos);
+      const depthT = Math.max(0, Math.min(1, (worldPos.distanceTo(camera.position) - depthNear) / (depthFar - depthNear)));
+      const isHovered = sprite === hovered;
+      // Only ever shrink far-side labels back, never enlarge near-side ones
+      // past their base size -- a near-side label is already closest to the
+      // frustum's vertical edge, so enlarging it is exactly what clips it.
+      const depthScale = 1 - depthT * 0.4;
+      const target = depthScale * (isHovered ? 1.35 : 1);
       const base = sprite.userData.baseScale;
       sprite.scale.x += (base.x * target - sprite.scale.x) * 0.2;
       sprite.scale.y += (base.y * target - sprite.scale.y) * 0.2;
+
+      const opacityTarget = isHovered ? 1 : 1 - depthT * 0.75; // far side fades back instead of competing for the same pixels
+      sprite.material.opacity += (opacityTarget - sprite.material.opacity) * 0.2;
     });
     renderer.render(scene, camera);
   };
