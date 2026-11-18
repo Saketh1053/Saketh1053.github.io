@@ -50,10 +50,6 @@
   </div>
 </nav>
 
-<div class="avatar-stage" id="avatarStage" aria-hidden="true">
-  <div class="avatar-halo"></div>
-</div>
-
 <main id="main">
   <div id="wrap">
 
@@ -61,6 +57,8 @@
   <section id="home" class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="keydrop-zone" id="keydropZone" aria-hidden="true"></div>
+    <span class="dog-slot" id="dogSlotHome" aria-hidden="true"></span>
+    <button type="button" class="dog-sprite" id="dogSprite" aria-label="A little dog. Click it for a trick."></button>
     <div class="hero-inner">
       <h1 class="hero-name"><span class="hero-hello mono">Hi, I'm</span><span class="hn">Saketh Reddy</span><span class="hn">Maddula<span class="accent">.</span></span></h1>
       <div class="hero-roles">
@@ -86,12 +84,12 @@
         <li>Applied AI</li>
       </ul>
     </div>
-    <p class="mono hero-scroll">Scroll to explore</p>
-    <p class="mono keydrop-hint">Press a key, or type S A K E T H.</p>
+    <p class="mono keydrop-hint">Press a key, or type S&nbsp;A&nbsp;K&nbsp;E&nbsp;T&nbsp;H.</p>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section about">
+    <span class="dog-slot" id="dogSlotAbout" aria-hidden="true"></span>
     <div class="about-body">
       <h2 class="about-lead">Healthcare systems, built so the people depending on them can trust them.</h2>
       <div class="about-text">
@@ -216,6 +214,20 @@
       </article>
 
       <article class="card work-card">
+        <h3>RotorLab</h3>
+        <p class="work-badge">Personal Project &middot; Interactive Flight Lab</p>
+        <p>
+          A buildless, interactive helicopter aerodynamics laboratory &mdash; drag the cyclic, work the
+          collective and pedals, and dial in wind, gusts, mass, and density altitude to see their
+          effects on rotor dynamics, live instruments, and a 90&deg; phase-lag diagram.
+        </p>
+        <ul class="chips">
+          <li>JavaScript</li><li>Canvas API</li><li>Flight Dynamics</li><li>No Dependencies</li>
+        </ul>
+        <a href="rotorlab.html" class="btn card-btn">Try it live &rarr;</a>
+      </article>
+
+      <article class="card work-card">
         <h3>MOTOCRAFT</h3>
         <p class="work-badge">Personal Project &middot; Work in Progress</p>
         <p>
@@ -336,6 +348,7 @@
 </main>
 
 <script src="js/script.js"></script>
+<script src="js/dog-sprite.js"></script>
 <script type="module" src="js/scene.js"></script>
 </body>
 </html>

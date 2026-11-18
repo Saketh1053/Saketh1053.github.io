@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RotorLab | Saketh Reddy Maddula</title>
+<meta name="description" content="RotorLab: a buildless, interactive helicopter aerodynamics laboratory covering cyclic, collective, pedals, wind, and rotor dynamics.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saketh Reddy Maddula">
+<meta property="og:title" content="RotorLab | Saketh Reddy Maddula">
+<meta property="og:description" content="RotorLab: a buildless, interactive helicopter aerodynamics laboratory covering cyclic, collective, pedals, wind, and rotor dynamics.">
+<meta property="og:url" content="https://saketh1053.github.io/rotorlab.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090c11'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%2352f2c8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="noise" aria-hidden="true"></div>
+<span class="cur-dot" aria-hidden="true"></span>
+<span class="cur-ring" aria-hidden="true"></span>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#home" class="logo">SRM<span>.</span></a>
+    <button id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home"><span data-text="Home">Home</span></a></li>
+      <li><a href="index.html#about"><span data-text="About">About</span></a></li>
+      <li><a href="index.html#work" class="active"><span data-text="Work">Work</span></a></li>
+      <li><a href="index.html#experience"><span data-text="Experience">Experience</span></a></li>
+      <li><a href="index.html#education"><span data-text="Education">Education</span></a></li>
+      <li><a href="index.html#contact"><span data-text="Contact">Contact</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="tag-row">
+    <span>Personal Project</span><span>Interactive Flight Lab</span>
+  </div>
+  <h1>RotorLab</h1>
+  <p class="page-intro" style="color: var(--ink); font-weight: 600; margin-top: 0.5rem;">See the forces. Feel the flight.</p>
+  <p class="page-intro">
+    A buildless, interactive helicopter aerodynamics laboratory &mdash; drag the cyclic, work the
+    collective and pedals, and dial in wind, gusts, mass, and density altitude to see their effects
+    on rotor dynamics, live flight instruments, and a 90&deg; phase-lag diagram.
+  </p>
+  <ul class="tag-list" style="margin-top: 1rem;">
+    <li>JavaScript</li><li>Canvas API</li><li>Flight Dynamics</li><li>No Dependencies</li>
+  </ul>
+</header>
+
+<main id="main" class="artifact-body">
+
+  <section>
+    <h2>Try it live</h2>
+    <p>
+      The lab is embedded below and fully interactive &mdash; it runs entirely client-side, with no
+      backend and nothing to install.
+    </p>
+    <p>
+      <a class="inline-link" href="rotor-lab/index.html" target="_blank" rel="noopener">Open in full screen &rarr;</a>
+    </p>
+    <iframe class="app-embed-frame" src="rotor-lab/index.html" title="RotorLab interactive helicopter aerodynamics laboratory" loading="lazy"></iframe>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      RotorLab is a self-contained rotorcraft dynamics visualization: a projected 3D schematic plus
+      top and side views of a single-rotor, counter-clockwise aircraft, with force vectors, an
+      airflow field, and a live swashplate inset. Every control &mdash; cyclic, collective,
+      antitorque pedals, forward groundspeed, wind, gusts, mass, density altitude, governed rotor
+      RPM, and maneuver load factor &mdash; feeds the same model in real time, with keyboard support
+      on every slider and the cyclic stick.
+    </p>
+  </section>
+
+  <section>
+    <h2>What it's modeling</h2>
+    <p>
+      The lab illustrates dissymmetry of lift between the advancing and retreating blades, the
+      ~90&deg; phase lag between a pitch input and the resulting flapping response, and how airspeed,
+      gross mass, density altitude, maneuver loading, and turbulence shrink or grow the retreating
+      side's stall margin. A built-in source register documents the five core and four supporting
+      FAA/NASA/Army references used, along with their review scope.
+    </p>
+    <p class="caveat">
+      This is a qualitative educational model, not validated CFD, aircraft performance software, or
+      a flight trainer. Stall onset, angle-of-attack, and envelope cues are illustrative, and no
+      aircraft-specific limits or recovery procedure are claimed.
+    </p>
+  </section>
+
+  <section>
+    <h2>Technologies Used</h2>
+    <ul class="tag-list">
+      <li>JavaScript</li><li>HTML5 Canvas</li><li>CSS</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>Saketh Reddy Maddula &middot; <span id="year"></span></p>
+  <p>Software Engineer &middot; AI/ML &middot; Healthcare Technology</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
